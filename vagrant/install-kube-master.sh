@@ -15,8 +15,8 @@ kubeadm version
 sleep 5
 
 echo '================================================================================'
-#sudo kubeadm init --pod-network-cidr=172.168.10.0/24
 sudo kubeadm init --apiserver-advertise-address 192.168.1.100 --pod-network-cidr 172.168.10.0/24
+#sudo kubeadm init --apiserver-advertise-address 192.168.1.100
 echo '================================================================================'
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -26,7 +26,7 @@ sleep 20
 
 echo '================================================================================'
 echo ' Weave net installation'
-sudo -i
+#sudo -i
 export kubever=$(kubectl version | base64 | tr -d '\n')
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
 
@@ -39,8 +39,8 @@ kubectl get nodes
 sleep 1m
 
 echo '================================================================================'
-sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-echo '================================================================================'
+#sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+#echo '================================================================================'
 echo ' sudo kubectl get pods --all-namespaces'
 sudo kubectl get pods --all-namespaces
 
