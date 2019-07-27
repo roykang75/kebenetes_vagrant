@@ -1,0 +1,43 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+	config.vm.define:"k8s-master" do |cfgm|
+		cfgm.vm.box = "peru/ubuntu-18.04-server-amd64"
+ 		cfgm.vm.box_version = "20190723.01"
+		cfgm.vm.host_name = "k8s-master"
+		cfgm.vm.network "public_network", ip: "192.168.1.100", bridge: "enp0s31f6"
+		cfgm.vm.provision "shell", path: "install-docker.sh"
+		cfgm.vm.provision "file", source: "install-kube-master.sh", destination: "install-kube-master.sh"
+
+		cfgm.vm.provider:virtualbox do |vb|
+			vb.name = "k8s-master"
+			vb.customize ["modifyvm", :id, "--cpus", 4]
+			vb.customize ["modifyvm", :id, "--memory", 4096]
+			vb.gui = false
+		end
+	end
+
+	config.vm.define:"k8s-worker-node1" do |cfgn|
+		cfgn.vm.box = "peru/ubuntu-18.04-server-amd64"
+ 		cfgn.vm.box_version = "20190723.01"
+		cfgn.vm.host_name = "k8s-worker-node1"
+		cfgn.vm.network "public_network", ip: "192.168.1.101", bridge: "enp0s31f6"
+		cfgn.vm.provision "shell", path: "install-docker.sh"
+		#cfgn.vm.provision "file", source: "install-kube-master.sh", destination: "install-kube-master.sh"
+		cfgn.vm.provision "file", source: "install-kube-slave.sh", destination: "install-kube-slave.sh"
+
+		cfgn.vm.provider:virtualbox do |vb|
+			vb.name = "k8s-worker-node1"
+			vb.customize ["modifyvm", :id, "--cpus", 2]
+			vb.customize ["modifyvm", :id, "--memory", 2048]
+			vb.gui = false
+		end
+	end
+
+
+end
