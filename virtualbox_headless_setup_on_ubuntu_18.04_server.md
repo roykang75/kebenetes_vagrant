@@ -1,4 +1,4 @@
-## Ubuntu 18.04 Server에 Virtualbox 5.2 headless 버전 설치하기
+## Ubuntu 18.04 Server에 Virtualbox 5.2 headless 버전 설치하기 :no_mouth:
 
 ### ubuntu 18.04 server를 설치합니다.  
 ### ubuntu server를 업데이트 합니다.  
