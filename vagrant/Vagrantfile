@@ -8,7 +8,7 @@
 Vagrant.configure("2") do |config|
 	config.vm.define:"k8s-master" do |cfgm|
 		cfgm.vm.box = "peru/ubuntu-18.04-server-amd64"
- 		cfgm.vm.box_version = "20190723.01"
+ 		cfgm.vm.box_version = "20190801.01"
 		cfgm.vm.host_name = "k8s-master"
 		cfgm.vm.network "public_network", ip: "192.168.1.100", bridge: "enp0s31f6"
 		cfgm.vm.provision "shell", path: "install-docker.sh"
@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
 
 	config.vm.define:"k8s-worker-node1" do |cfgn|
 		cfgn.vm.box = "peru/ubuntu-18.04-server-amd64"
- 		cfgn.vm.box_version = "20190723.01"
+ 		cfgn.vm.box_version = "20190801.01"
 		cfgn.vm.host_name = "k8s-worker-node1"
 		cfgn.vm.network "public_network", ip: "192.168.1.101", bridge: "enp0s31f6"
 		cfgn.vm.provision "shell", path: "install-docker.sh"
