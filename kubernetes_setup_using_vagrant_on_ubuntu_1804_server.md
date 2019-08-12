@@ -157,3 +157,45 @@ vagrant@k8s-master:~$
 ```
 두 개의 node를 확인할 수 있습니다.  
 
+### 영구적으로 swap 파티션 제거하기
+kubernetes를 구동하기 위해서 swap partition을 영구적으로 제거합니다.  
+**swap off를 하지 않으면 가상 머신을 재부팅했을 때, kubernetes를 재구동할 수 없습니다.**
+
+
+* master (k8s-master)
+아래 명령을 실행합니다.
+```
+vagrant@k8s-master:~$ sudo vim /etc/fstab
+```
+swap 파티션 부분을 주석처리하고 저장합니다.  
+```
+# /etc/fstab: static file system information.
+# 
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda1 during installation
+UUID=7ba03b74-b976-4205-a051-a14a0602bcd6 /               ext4    errors=remount-ro 0       1
+#/swapfile                                 none            swap    sw              0       0
+```
+
+* master (k8s-worker-node1)
+아래 명령을 실행합니다. (master와 내용은 동일합니다.)
+```
+vagrant@k8s-worker-node1:~$ sudo vim /etc/fstab
+```
+swap 파티션 부분을 주석처리하고 저장합니다.  
+```
+# /etc/fstab: static file system information.
+# 
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda1 during installation
+UUID=7ba03b74-b976-4205-a051-a14a0602bcd6 /               ext4    errors=remount-ro 0       1
+#/swapfile                                 none            swap    sw              0       0
+```
