@@ -39,6 +39,7 @@ vagrant로 생성한 가상 머신에 ssh로 접속하기 위해서는 ip로 접
 ip로 접속하는 방법은 일반적인 방법과 동일합니다.  
 여기서는 vagrant를 이용하여 접속하겠습니다.  
 위의 가상머신 리스트 중 k8s-master에 접속하기 위해서는 아래와 같이 입력합니다.  
+**vagrant 명령을 사용하기 위해서는 .vagrant가 있는 folder에서 명령을 실행해야 합니다.**
 ```
 roy@ubuntu:~/kubernetes_vagrant/vagrant$ vagrant ssh k8s-master
 Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-55-generic x86_64)
