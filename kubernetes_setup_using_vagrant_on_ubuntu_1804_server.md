@@ -123,6 +123,7 @@ vagrant@k8s-worker-node1:~$ bash install-kube-slave.sh
 ...........
 ...........
 kubeadm version: &version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.2", GitCommit:"f6278300bebbb750328ac16ee6dd3aa7d3549568", GitTreeState:"clean", BuildDate:"2019-08-05T09:20:51Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
+vagrant@k8s-worker-node1:~$
 ```
 
 ### master에 join하기
