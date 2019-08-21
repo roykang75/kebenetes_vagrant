@@ -1,6 +1,10 @@
 #!bin/bash
 sudo apt-get update && sudo apt-get upgrade -y
 
+echo "192.168.1.100	ubuntu-1804-srv"       | tee -a /etc/hosts > /dev/null
+echo "192.168.1.101	docker-registry" | tee -a /etc/hosts > /dev/null
+
+
 # apt가 HTTPS 저장소의 패키지를 설치할 수 있도록 한다.
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 
