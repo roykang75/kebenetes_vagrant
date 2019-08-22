@@ -1,12 +1,13 @@
-#!bin/bash
+sudo sed -i 's/archive.ubuntu.com/ftp.daum.net/g' /etc/apt/sources.list
+  
 sudo apt-get update && sudo apt-get upgrade -y
 
-echo "192.168.1.100	ubuntu-1804-srv"       | tee -a /etc/hosts > /dev/null
-echo "192.168.1.101	docker-registry" | tee -a /etc/hosts > /dev/null
+echo "192.168.1.100     ubuntu-1804-srv"       | tee -a /etc/hosts > /dev/null
+echo "192.168.1.101     docker-registry" | tee -a /etc/hosts > /dev/null
 
 
 # apt가 HTTPS 저장소의 패키지를 설치할 수 있도록 한다.
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get install -y  apt-transport-https ca-certificates curl software-properties-common
 
 # 도커 공식 GPG키를 저장하고 apt-key에 등록한다.
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -15,7 +16,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 # docker 설치
-sudo apt-get install docker-ce
+sudo apt-get install -y docker-ce
 
 # docker 삭제
 # docker 패키지 제거
