@@ -163,4 +163,4 @@ ubuntu@ubuntu:/etc/bind$
 
 ![](/assets/iptime_private_dns.png)
 
-* ipTime 설정 저장 후, 각 PC들을 재부팅해야 새로운 DNS 서버 설정 정보가 반영됩니다.
+** ipTime 설정 저장 후, 각 PC들을 재부팅해야 새로운 DNS 서버 설정 정보가 반영됩니다.**
