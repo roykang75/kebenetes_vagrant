@@ -18,6 +18,10 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 # docker 설치
 sudo apt-get install -y docker-ce
 
+# 현재 계정에 docker 권한 부여
+sudo usermod -aG docker $USER 
+
+
 # docker 삭제
 # docker 패키지 제거
 # sudo apt purge docker-ce
