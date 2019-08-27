@@ -1,4 +1,4 @@
-### Docker private registry
+### Docker private registry with SSL
 
 ---
 docker private registry는 보안상 http를 지원하지않는다. 따라서 https를 사용해야 하며, https를 지원하기 위해서 전자서명 파일이 필요하다. 여기서는 openssl을 이용하여 전자서명을 생성해 보겠다.  
@@ -180,4 +180,10 @@ $ vi /etc/hosts
 
 ##### Docker private registry login
 ```
+$ docker login oiio.xyz:5000
+username:
+password:
+
+success
+$
 ```
