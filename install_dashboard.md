@@ -281,3 +281,11 @@ https://192.168.1.40:6443/api/v1/namespaces/kubernetes-dashboard/services/https:
 아래는 dasbboard login 화면입니다.  
 
 ![](/assets/kube_dashboard_login.png)
+
+위에서 확인한 admin-user token 값을 이용하여 로그인합니다.  
+
+![](/assets/kube_dashboard_login_token.png)
+
+로그인이 되면 아래와 같은 화면이 나타납니다.  
+
+![](/assets/kube_dashboard_view.png)
