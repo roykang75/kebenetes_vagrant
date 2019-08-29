@@ -37,6 +37,7 @@ clusterrolebinding.rbac.authorization.k8s.io/admin-user created
 ```
 
 admin-user token을 확인합니다.  
+**(이 token은 dashboard login에 사용됩니다.)**  
 
 ```
 $ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
