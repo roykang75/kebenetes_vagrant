@@ -3,9 +3,9 @@
 ---
 Kubernetes 설치 방법에 대해 설명합니다.
 
-#### 설치환경
+### 설치환경
 
-> OS: ubuntu 18.04 server LTS
+> OS: ubuntu 18.04 server LTS  
 > Docker version: docker-ce=18.06.2~ce~3-0~ubuntu
 
 ### 공통 설치 항목 (docker)
