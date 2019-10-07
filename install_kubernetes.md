@@ -26,7 +26,8 @@ $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ub
 $ sudo apt-get install -y docker-ce=18.06.2~ce~3-0~ubuntu
 
 ### Setup daemon.
-$ cat > /etc/docker/daemon.json <<EOF
+### run as root
+# cat > /etc/docker/daemon.json <<EOF
 {
   "exec-opts": ["native.cgroupdriver=systemd"],
   "log-driver": "json-file",
@@ -36,7 +37,9 @@ $ cat > /etc/docker/daemon.json <<EOF
   "storage-driver": "overlay2"
 }
 EOF
-$ mkdir -p /etc/systemd/system/docker.service.d
+
+### exit root
+$ sudo mkdir -p /etc/systemd/system/docker.service.d
 $ sudo usermod -aG docker $USER
 
 ### Restart docker.
