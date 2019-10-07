@@ -66,6 +66,9 @@ $ sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 
 ### 'swapoff -a'
 $ sudo swapoff -a
+
+### Case of kubernetes 1.14.0 version install
+### sudo apt-get install -y kubelet=1.14.0-00 kubeadm=1.14.0-00 kubectl=1.14.0-00
 $ sudo apt-get install -y kubelet kubeadm kubectl
 $ kubeadm version
 
